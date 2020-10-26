@@ -1,0 +1,25 @@
+{
+  "name": "castor-weekend-sql-todo-list",
+  "version": "1.0.0",
+  "description": "[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myronschippers/castor-sql-todo-list.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/myronschippers/castor-sql-todo-list/issues"
+  },
+  "homepage": "https://github.com/myronschippers/castor-sql-todo-list#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "pg": "^8.4.1"
+  }
+}
