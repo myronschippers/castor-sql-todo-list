@@ -57,6 +57,20 @@ router.delete('/:todoId', (req, res) => {
 });
 
 // PUT - update complete status on a specific TODO
-router.put('/', (req, res) => {});
+router.put('/complete/:todoId', (req, res) => {
+  const todoId = req.params.todoId;
+  // const status = req.body;
+  const queryText = `UPDATE "todos" SET "complete"=true WHERE "id"=$1;`;
+
+  pool
+    .query(queryText, [todoId])
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
 
 module.exports = router;
