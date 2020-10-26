@@ -16,4 +16,13 @@ router.get('/', (req, res) => {
     });
 });
 
+// POST - adding a new TODO
+router.post('/', (req, res) => {});
+
+// DELETE - remove a single todo from DB
+router.delete('/', (req, res) => {});
+
+// PUT - update complete status on a specific TODO
+router.put('/', (req, res) => {});
+
 module.exports = router;
