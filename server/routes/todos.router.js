@@ -40,7 +40,21 @@ router.post('/', (req, res) => {
 });
 
 // DELETE - remove a single todo from DB
-router.delete('/', (req, res) => {});
+router.delete('/:todoId', (req, res) => {
+  const todoId = req.params.todoId;
+  console.log('todoId:', todoId);
+  const queryText = `DELETE FROM "todos" WHERE "id"=$1;`;
+
+  pool
+    .query(queryText, [todoId])
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
 
 // PUT - update complete status on a specific TODO
 router.put('/', (req, res) => {});
