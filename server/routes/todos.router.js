@@ -17,7 +17,27 @@ router.get('/', (req, res) => {
 });
 
 // POST - adding a new TODO
-router.post('/', (req, res) => {});
+router.post('/', (req, res) => {
+  // retrieve data from the client
+  // {
+  //   description: ''
+  // }
+  const newTodo = req.body;
+  // create query to insert item
+  const queryText = `INSERT INTO "todos" ("description", "complete")
+  VALUES ($1, false);`;
+
+  // query DB
+  pool
+    .query(queryText, [newTodo.description])
+    .then((dbResponse) => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
 
 // DELETE - remove a single todo from DB
 router.delete('/', (req, res) => {});
